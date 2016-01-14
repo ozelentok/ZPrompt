@@ -7,8 +7,8 @@
 std::string SystemInfo::get_hostname()
 {
 	char hostname[HOST_NAME_MAX];
-  int hostname_result = gethostname(hostname, HOST_NAME_MAX);
-  if (hostname_result) {
+	int hostname_result = gethostname(hostname, HOST_NAME_MAX);
+	if (hostname_result) {
 		return std::string("NO_HOSTNAME");
 	}
 	return std::string(hostname);
@@ -17,7 +17,7 @@ std::string SystemInfo::get_hostname()
 std::string SystemInfo::get_username()
 {
 	const passwd* user_info = getpwuid(getuid());
-  if (user_info == nullptr) {
+	if (user_info == nullptr) {
 		return std::string("NO_USERNAME");
 	}
 	return std::string(user_info->pw_name);

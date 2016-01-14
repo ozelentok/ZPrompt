@@ -15,8 +15,8 @@ class Colors
 
 	private:
 		static std::string start_color(
-				const std::string& color_starter_template,
-				const std::string& color);
+			const std::string& color_starter_template,
+			const std::string& color);
 
 	private:
 		Colors() = delete;

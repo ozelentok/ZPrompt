@@ -22,8 +22,8 @@ const std::string Colors::PROMPT_BACKGROUND("22");
 #endif
 
 std::string Colors::start_color(
-		const std::string& color_starter_template,
-		const std::string& color)
+	const std::string& color_starter_template,
+	const std::string& color)
 {
 	std::string color_starter(color_starter_template);
 	color_starter.insert(COLOR_INSERTION_INDEX, color);
