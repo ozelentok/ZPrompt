@@ -1,23 +1,19 @@
 #include "Colors.hpp"
+#include "SystemInfo.hpp"
 
 #include <iostream>
 #include <sstream>
 #include <cstdlib>
-#include <unistd.h>
 #include <algorithm>
 
-using std::string;
-using std::stringstream;
-
-static const string UNIX_SEPERATOR("/");
-static const string ARROW_SEPERATOR("⮀");
-static const string THIN_ARROW_SEPERATOR(" ⮁ ");
-static const string CWD_HOME(" ~");
-static const string PROMPT_START("\n $ ");
+static const std::string UNIX_SEPERATOR("/");
+static const std::string ARROW_SEPERATOR("⮀");
+static const std::string THIN_ARROW_SEPERATOR(" ⮁ ");
+static const std::string CWD_HOME(" ~");
 static const char* const HOME_ENVIRONMENT_VARIABLE_NAME = "HOME";
 static const size_t DEFAULT_PROMPT_SIZE = 150;
 
-void replace_seperators(string& cwd)
+void replace_seperators(std::string& cwd)
 {
 	size_t index = 0;
 	bool is_root = false;
@@ -35,26 +31,22 @@ void replace_seperators(string& cwd)
 	}
 }
 
-void replace_home_path(string& cwd)
+void replace_home_path(std::string& cwd)
 {
 	const char* const raw_home = getenv(HOME_ENVIRONMENT_VARIABLE_NAME);
 	if (raw_home == nullptr) {
 		return;
 	}
-	string home(raw_home);
+	std::string home(raw_home);
 	size_t index = cwd.find(home, index);
 	if (index == 0) {
 		cwd.replace(index, home.length(), CWD_HOME);
 	}
 }
 
-void append_current_working_directory(string& prompt)
+void append_current_working_directory(std::string& prompt)
 {
-	const char* raw_cwd = getenv("PWD");
-	if (raw_cwd == nullptr) {
-		return;
-	}
-	string cwd = raw_cwd;
+	std::string cwd = SystemInfo::get_cwd();
 	replace_home_path(cwd);
 	replace_seperators(cwd);
 	prompt += Colors::start_foreground_color(Colors::CWD_FOREGROUND);
@@ -64,12 +56,17 @@ void append_current_working_directory(string& prompt)
 	prompt += Colors::start_foreground_color(Colors::CWD_BACKGROUND);
 	prompt += ARROW_SEPERATOR;
 	prompt += Colors::stop_colors();
+	prompt += "\n";
 }
 
-void append_prompt_line(string& prompt)
+void append_prompt_line(std::string& prompt)
 {
 	prompt += Colors::start_background_color(Colors::PROMPT_BACKGROUND);
-	prompt += PROMPT_START;
+	prompt += " ";
+	prompt += SystemInfo::get_username();
+	prompt += "@";
+	prompt += SystemInfo::get_hostname();
+	prompt += " ";
 	prompt += Colors::stop_colors();
 	prompt += Colors::start_foreground_color(Colors::PROMPT_BACKGROUND);
 	prompt += ARROW_SEPERATOR;
@@ -78,7 +75,7 @@ void append_prompt_line(string& prompt)
 
 int main()
 {
-	string prompt;
+	std::string prompt;
 	prompt.reserve(DEFAULT_PROMPT_SIZE);
 	append_current_working_directory(prompt);
 	append_prompt_line(prompt);
