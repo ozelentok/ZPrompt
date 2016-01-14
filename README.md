@@ -2,20 +2,20 @@
 
 Informative and radiant prompt for Zsh
 
-##Building
+##Installing
 
 ###Bash:
 
-- Build zprompt
+- Build ZPrompt
 ```
 make
 make install
 ```
 
-- Add to your .bashrc
+- Add the following lines to your .bashrc
 ```
 function _pre_ps1() {
-	PS1="$($HOME/.zprompt/zprompt)"
+	PS1="$($HOME/.config/zprompt)"
 }
 
 PROMPT_COMMAND="_pre_ps1; $PROMPT_COMMAND"
@@ -23,13 +23,13 @@ PROMPT_COMMAND="_pre_ps1; $PROMPT_COMMAND"
 
 ###Zsh:
 
-- Build zprompt
+- Build ZPrompt
 ```
 make TARGET_SHELL=zsh
 make install
 ```
 
-- Add to your .zshrc
+- Add the following lines to your .zshrc
 ```
 function precmd() {
 	export PS1="$($HOME/.config/zprompt)"
