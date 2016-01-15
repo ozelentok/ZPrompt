@@ -5,21 +5,17 @@ static const size_t COLOR_INSERTION_INDEX = 9;
 static const std::string BACKGROUND_COLOR_TEMPLATE("%{[48;5;m%}");
 static const std::string FOREGROUND_COLOR_TEMPLATE("%{[38;5;m%}");
 static const std::string COLORS_STOP("%{[0m%}");
-
-const std::string Colors::CWD_FOREGROUND("255");
-const std::string Colors::CWD_BACKGROUND("25");
-const std::string Colors::PROMPT_BACKGROUND("22");
-
 #else
 static const size_t COLOR_INSERTION_INDEX = 7;
 static const std::string BACKGROUND_COLOR_TEMPLATE("\e[48;5;m");
 static const std::string FOREGROUND_COLOR_TEMPLATE("\e[38;5;m");
 static const std::string COLORS_STOP("\e[0m");
-
-const std::string Colors::CWD_FOREGROUND("255");
-const std::string Colors::CWD_BACKGROUND("25");
-const std::string Colors::PROMPT_BACKGROUND("22");
 #endif
+
+const std::string Colors::USER_BACKGROUND("25");
+const std::string Colors::CWD_BACKGROUND("235");
+const std::string Colors::PROMPT_BACKGROUND("22");
+const std::string Colors::WHITE("255");
 
 std::string Colors::start_color(
 	const std::string& color_starter_template,

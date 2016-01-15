@@ -31,3 +31,8 @@ std::string SystemInfo::get_cwd()
 	}
 	return std::string(cwd);
 }
+
+bool SystemInfo::is_root()
+{
+	return getuid() == 0;
+}

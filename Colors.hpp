@@ -5,9 +5,10 @@
 class Colors
 {
 	public:
-		static const std::string CWD_FOREGROUND;
+		static const std::string USER_BACKGROUND;
 		static const std::string CWD_BACKGROUND;
 		static const std::string PROMPT_BACKGROUND;
+		static const std::string WHITE;
 
 		static std::string start_foreground_color(const std::string& color);
 		static std::string start_background_color(const std::string& color);
