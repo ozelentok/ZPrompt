@@ -1,6 +1,10 @@
 #ZPrompt
 
-Informative and radiant prompt for Zsh
+Informative and radiant prompt for Zsh and Bash
+
+##Screenshot
+
+![zprompt01](https://cloud.githubusercontent.com/assets/1478966/20607964/a588403a-b285-11e6-94c5-de8d6357455a.png)
 
 ##Installing
 
