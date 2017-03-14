@@ -1,41 +1,41 @@
-#ZPrompt
+# ZPrompt
 
 Informative and radiant prompt for Zsh and Bash
 
-##Screenshot
+## Screenshot
 
 ![zprompt01](https://cloud.githubusercontent.com/assets/1478966/20607964/a588403a-b285-11e6-94c5-de8d6357455a.png)
 
-##Installing
+## Installation
 
-###Bash:
+### Bash:
 
 - Build ZPrompt
-```
-make
-make install
-```
+	```
+	make
+	make install
+	```
 
 - Add the following lines to your .bashrc
-```
-function _pre_ps1() {
-	PS1="$($HOME/.config/zprompt)"
-}
+	```
+	function _pre_ps1() {
+		PS1="$($HOME/.config/zprompt)"
+	}
 
-PROMPT_COMMAND="_pre_ps1; $PROMPT_COMMAND"
-```
+	PROMPT_COMMAND="_pre_ps1; $PROMPT_COMMAND"
+	```
 
-###Zsh:
+### Zsh
 
 - Build ZPrompt
-```
-make TARGET_SHELL=zsh
-make install
-```
+	```
+	make TARGET_SHELL=zsh
+	make install
+	```
 
 - Add the following lines to your .zshrc
-```
-function precmd() {
-	export PS1="$($HOME/.config/zprompt)"
-}
-```
+	```
+	function precmd() {
+		export PS1="$($HOME/.config/zprompt)"
+	}
+	```
