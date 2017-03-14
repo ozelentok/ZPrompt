@@ -38,7 +38,7 @@ void replace_home_path(std::string& cwd)
 		return;
 	}
 	std::string home(raw_home);
-	size_t index = cwd.find(home, index);
+	size_t index = cwd.find(home);
 	if (index == 0) {
 		cwd.replace(index, home.length(), CWD_HOME);
 	}
