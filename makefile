@@ -12,8 +12,14 @@ endif
 	strip $@
 
 install: zprompt
-	mkdir -p $(HOME)/.config
-	cp ./zprompt $(HOME)/.config/zprompt
+ifeq ($(TARGET_SHELL), zsh)
+	mkdir -p $(HOME)/.zsh
+	cp ./zprompt $(HOME)/.zsh/zprompt
+else
+	mkdir -p $(HOME)/.bash
+	cp ./zprompt $(HOME)/.bash/zprompt
+endif
+
 
 clean:
 	rm -f zprompt

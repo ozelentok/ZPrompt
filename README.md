@@ -19,7 +19,7 @@ Informative and radiant prompt for Zsh and Bash
 - Add the following lines to your .bashrc
 	```
 	function _pre_ps1() {
-		PS1="$($HOME/.config/zprompt)"
+		PS1="$($HOME/.bash/zprompt)"
 	}
 
 	PROMPT_COMMAND="_pre_ps1; $PROMPT_COMMAND"
@@ -30,12 +30,12 @@ Informative and radiant prompt for Zsh and Bash
 - Build ZPrompt
 	```
 	make TARGET_SHELL=zsh
-	make install
+	make install TARGET_SHELL=zsh
 	```
 
 - Add the following lines to your .zshrc
 	```
 	function precmd() {
-		export PS1="$($HOME/.config/zprompt)"
+		export PS1="$($HOME/.zsh/zprompt)"
 	}
 	```
