@@ -12,7 +12,6 @@ Informative and radiant prompt for Zsh and Bash
 
 - Build ZPrompt
 	```
-	make
 	make install
 	```
 
@@ -29,7 +28,6 @@ Informative and radiant prompt for Zsh and Bash
 
 - Build ZPrompt
 	```
-	make TARGET_SHELL=zsh
 	make install TARGET_SHELL=zsh
 	```
 
