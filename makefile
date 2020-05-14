@@ -1,4 +1,4 @@
-CXXFLAGS = -O2 -Werror -Wall -pie -fPIE -fno-stack-protector -fomit-frame-pointer -ffunction-sections -fdata-sections
+CXXFLAGS = -O2 -Werror -Wall -pie -fPIE -fno-stack-protector -fomit-frame-pointer
 LDFLAGS = -Wl,--gc-sections -s
 SRC_CXX_FILES = $(wildcard *.cpp)
 

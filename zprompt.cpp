@@ -7,8 +7,8 @@
 #include <algorithm>
 
 static const std::string UNIX_SEPERATOR("/");
-static const std::string ARROW_SEPERATOR("⮀");
-static const std::string THIN_ARROW_SEPERATOR(" ⮁ ");
+static const std::string ARROW_SEPERATOR("");
+static const std::string THIN_ARROW_SEPERATOR("  ");
 static const std::string CWD_HOME(" ~");
 static const char* const HOME_ENVIRONMENT_VARIABLE_NAME = "HOME";
 static const size_t DEFAULT_PROMPT_SIZE = 1024;

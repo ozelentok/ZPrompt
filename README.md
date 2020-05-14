@@ -1,6 +1,8 @@
 # ZPrompt
 
-Informative and radiant prompt for Zsh and Bash
+Informative and radiant prompt for ZSH and Bash
+
+Requires Powerline Fonts
 
 ## Screenshot
 
